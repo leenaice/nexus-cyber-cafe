@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NEXUS | Project Details</title>
+
+  <style>
+    :root {
+      --bg-deep: #05070a;
+      --bg-panel: #0b1015;
+      --bg-panel-2: #101820;
+      --line: rgba(0, 255, 220, 0.14);
+      --blue: #00e5d4;
+      --purple: #7c4dff;
+      --coral: #ff8a3d;
+      --text: #ecfffc;
+      --muted: #8ca7a5;
+      --muted-2: #58716f;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(124, 77, 255, 0.10), transparent 30%),
+        radial-gradient(circle at 10% 40%, rgba(0, 229, 212, 0.06), transparent 30%),
+        var(--bg-deep);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 18px 7%;
+
+      background: rgba(5, 7, 10, 0.88);
+      backdrop-filter: blur(15px);
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo img {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+      border-radius: 7px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-btn {
+      padding: 9px 17px;
+      border: 1px solid var(--blue);
+      border-radius: 8px;
+      color: var(--blue) !important;
+    }
+
+    .nav-btn:hover {
+      background: var(--blue);
+      color: var(--bg-deep) !important;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .project-hero {
+      padding: 110px 7% 80px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-label {
+      color: var(--blue);
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      font-weight: 700;
+    }
+
+    .project-hero h1 {
+      margin: 15px 0;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1.05;
+    }
+
+    .project-hero h1 span {
+      color: var(--blue);
+    }
+
+    .project-hero p {
+      max-width: 750px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .project-info {
+      margin: 35px auto 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .info-pill {
+      padding: 9px 16px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: rgba(16, 24, 32, 0.7);
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    /* =========================
+       LAYOUT
+    ========================= */
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 45px;
+      max-width: 1400px;
+      margin: auto;
+      padding: 70px 7%;
+    }
+
+    /* =========================
+       SIDEBAR
+    ========================= */
+
+    .sidebar {
+      position: sticky;
+      top: 100px;
+      height: fit-content;
+
+      padding: 20px;
+
+      background: rgba(11, 16, 21, 0.8);
+      border: 1px solid var(--line);
+      border-radius: 15px;
+    }
+
+    .sidebar-title {
+      color: var(--blue);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 9px 10px;
+
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+
+      border-left: 2px solid transparent;
+
+      transition: 0.3s ease;
+    }
+
+    .sidebar a:hover {
+      color: var(--blue);
+      border-left-color: var(--blue);
+      padding-left: 15px;
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .content section {
+      margin-bottom: 90px;
+      scroll-margin-top: 100px;
+    }
+
+    .section-number {
+      color: var(--blue);
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      font-weight: 700;
+    }
+
+    .content h2 {
+      margin: 8px 0 20px;
+      font-size: 2.1rem;
+    }
+
+    .content h3 {
+      margin: 35px 0 15px;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+
+    .content p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    /* =========================
+       CARDS
+    ========================= */
+
+    .card {
+      background: rgba(16, 24, 32, 0.72);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 25px;
+      margin-top: 20px;
+    }
+
+    .card:hover {
+      border-color: rgba(0, 229, 212, 0.3);
+    }
+
+    /* =========================
+       TABLE
+    ========================= */
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 650px;
+      background: rgba(11, 16, 21, 0.75);
+      border: 1px solid var(--line);
+    }
+
+    th {
+      text-align: left;
+      padding: 14px;
+      color: var(--blue);
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(0, 229, 212, 0.04);
+    }
+
+    td {
+      padding: 14px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    tr:hover td {
+      background: rgba(0, 229, 212, 0.025);
+    }
+
+    /* =========================
+       LIST
+    ========================= */
+
+    .custom-list {
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .custom-list li {
+      margin-bottom: 8px;
+    }
+
+    /* =========================
+       IMAGE PLACEHOLDER
+    ========================= */
+
+    .image-box {
+      min-height: 250px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 20px;
+
+      border: 1px dashed rgba(0, 229, 212, 0.3);
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0, 229, 212, 0.04),
+          rgba(124, 77, 255, 0.04)
+        );
+
+      color: var(--muted-2);
+      text-align: center;
+    }
+
+    .project-image {
+      width: 100%;
+      max-height: 600px;
+      object-fit: contain;
+      border-radius: 12px;
+      display: block;
+      margin-top: 20px;
+      border: 1px solid var(--line);
+    }
+
+    /* =========================
+       TESTING
+    ========================= */
+
+    .test-success {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .test-box {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .test-card {
+      padding: 20px;
+      background: var(--bg-panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .test-card span {
+      display: block;
+      color: var(--muted-2);
+      font-size: 0.7rem;
+      margin-bottom: 6px;
+    }
+
+    .test-card strong {
+      color: var(--blue);
+      font-size: 1.1rem;
+    }
+
+    /* =========================
+       VIDEO
+    ========================= */
+
+    .video-container {
+      margin-top: 25px;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #000;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 45px 7%;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      color: var(--muted-2);
+      font-size: 0.8rem;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      .page-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .test-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
+  <nav>
+
+    <div class="logo">
+      <img src="nexus-logo.png" alt="NEXUS Cyber Café Logo">
+      NEXUS Cyber Café
+    </div>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#hardware">Hardware</a>
+      <a href="#network">Network</a>
+      <a href="#ip">IP Addressing</a>
+      <a href="#internet">Internet</a>
+      <a href="#testing">Testing</a>
+      <a href="#video">Video</a>
+      <a href="index.html#team" class="nav-btn">Our Team</a>
+    </div>
+
+  </nav>
+
+
+  <!-- =========================
+       PROJECT HERO
+  ========================= -->
+
+  <header class="project-hero">
+
+    <div class="project-label">
+      DATA COMMUNICATION AND NETWORKING
+    </div>
+
+    <h1>
+      NEXUS <span>Project</span>
+    </h1>
+
+    <p>
+      Proposed network design, hardware, software, IP addressing,
+      Internet access and network configuration for NEXUS Cyber Café.
+    </p>
+
+    <div class="project-info">
+
+      <div class="info-pill">
+        DITS 2313
+      </div>
+
+      <div class="info-pill">
+        Semester 3
+      </div>
+
+      <div class="info-pill">
+        Session 2025/2026
+      </div>
+
+      <div class="info-pill">
+        UTeM
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================= -->
+
+  <div class="page-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+      <div class="sidebar-title">
+        PROJECT CONTENT
+      </div>
+
+      <a href="#hardware">2.0 Hardware & Software</a>
+      <a href="#network">3.0 Network Topology & Design</a>
+      <a href="#ip">4.0 IP Addressing</a>
+      <a href="#internet">5.0 Internet Access</a>
+      <a href="#testing">6.0 Network Testing</a>
+      <a href="#video">7.0 Project Video</a>
+      <a href="#conclusion">8.0 Conclusion</a>
+      <a href="#appendix">9.0 Appendix</a>
+
+    </aside>
+
+
+    <!-- CONTENT -->
+
+    <main class="content">
+
+
+      <!-- =========================================
+           2.0 HARDWARE & SOFTWARE
+      ========================================== -->
+
+      <section id="hardware">
+
+        <div class="section-number">
+          2.0 PROPOSED HARDWARE AND SOFTWARE
+        </div>
+
+        <h2>Hardware & Software</h2>
+
+        <p>
+          This section presents the proposed hardware and software
+          required to support the daily operations and network
+          infrastructure of NEXUS Cyber Café.
+        </p>
+
+
+        <!-- 2.1 HARDWARE -->
+
+        <h3>2.1 Hardware</h3>
+
+        <div class="table-wrapper">
+
+          <table>
+
+            <thead>
+              <tr>
+                <th>Hardware</th>
+                <th>Quantity</th>
+                <th>Function</th>
+                <th>Estimated Price</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td>Gaming PC</td>
+                <td>15 units</td>
+                <td>Customer computers</td>
+                <td>RM45,000</td>
+              </tr>
+
+              <tr>
+                <td>Server PC</td>
+                <td>1</td>
+                <td>Manage network & database</td>
+                <td>RM3,500</td>
+              </tr>
+
+              <tr>
+                <td>Router</td>
+                <td>1</td>
+                <td>Internet connection</td>
+                <td>RM600</td>
+              </tr>
+
+              <tr>
+                <td>Managed Switch 24 Ports</td>
+                <td>1</td>
+                <td>Connect network devices</td>
+                <td>RM1,200</td>
+              </tr>
+
+              <tr>
+                <td>Wireless Access Point</td>
+                <td>2</td>
+                <td>Wi-Fi coverage</td>
+                <td>RM800</td>
+              </tr>
+
+              <tr>
+                <td>Network Printer</td>
+                <td>1</td>
+                <td>Printing service</td>
+                <td>RM700</td>
+              </tr>
+
+              <tr>
+                <td>CCTV Camera</td>
+                <td>4</td>
+                <td>Security monitoring</td>
+                <td>RM1,200</td>
+              </tr>
+
+              <tr>
+                <td>UPS</td>
+                <td>2</td>
+                <td>Power backup</td>
+                <td>RM800</td>
+              </tr>
+
+              <tr>
+                <td>Ethernet Cable Cat6</td>
+                <td>1 box</td>
+                <td>Network media</td>
+                <td>RM500</td>
+              </tr>
+
+              <tr>
+                <td>RJ45 Connector</td>
+                <td>50 pcs</td>
+                <td>Cable termination</td>
+                <td>RM50</td>
+              </tr>
+
+              <tr>
+                <td>Rack Cabinet</td>
+                <td>1</td>
+                <td>Store network devices</td>
+                <td>RM800</td>
+              </tr>
+
+              <tr>
+                <td colspan="3">
+                  <strong>Total Estimated Hardware Cost</strong>
+                </td>
+
+                <td>
+                  <strong>RM55,150</strong>
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+        <!-- HARDWARE IMAGE -->
+
+        <div class="image-box">
+          INSERT HARDWARE / EQUIPMENT IMAGE HERE
+        </div>
+
+
+        <!-- 2.2 SOFTWARE -->
+
+        <h3>2.2 Software</h3>
+
+        <div class="table-wrapper">
+
+          <table>
+
+            <thead>
+              <tr>
+                <th>Software</th>
+                <th>Function</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr>
+                <td>Windows 11 Pro</td>
+                <td>Operating system</td>
+              </tr>
+
+              <tr>
+                <td>Microsoft Office</td>
+                <td>Productivity software</td>
+              </tr>
+
+              <tr>
+                <td>Steam</td>
+                <td>Gaming platform</td>
+              </tr>
+
+              <tr>
+                <td>Antivirus</td>
+                <td>Security protection</td>
+              </tr>
+
+              <tr>
+                <td>Network Management Software</td>
+                <td>Monitor network performance</td>
+              </tr>
+
+              <tr>
+                <td>MySQL Database</td>
+                <td>Customer and database management</td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================================
+           3.0 NETWORK TOPOLOGY & DESIGN
+      ========================================== -->
+
+      <section id="network">
+
+        <div class="section-number">
+          3.0 PROPOSED NETWORK TOPOLOGY AND DESIGN
+        </div>
+
+        <h2>Network Topology & Design</h2>
+
+        <p>
+          The network design is proposed based on the shop lot size
+          of <strong>15' × 25'</strong>. The design focuses on
+          efficient connectivity, easy maintenance and future
+          expansion.
+        </p>
+
+
+        <!-- 3.1 LAYOUT -->
+
+        <h3>3.1 Network Layout</h3>
+
+        <div class="image-box">
+          INSERT 15' × 25' CYBER CAFÉ LAYOUT IMAGE HERE
+        </div>
+
+
+        <!-- 3.2 DEVICES -->
+
+        <h3>3.2 Network Devices</h3>
+
+        <div class="card">
+
+          <ul class="custom-list">
+
+            <li>
+              <strong>Router:</strong>
+              Provides Internet connectivity and acts as the network gateway.
+            </li>
+
+            <li>
+              <strong>Managed Switch:</strong>
+              Connects wired computers and network devices.
+            </li>
+
+            <li>
+              <strong>Server:</strong>
+              Manages network and database services.
+            </li>
+
+            <li>
+              <strong>Wireless Access Point:</strong>
+              Provides wireless network access.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- 3.3 TOPOLOGY -->
+
+        <h3>3.3 Network Topology</h3>
+
+        <div class="card">
+
+          <h3>Star Topology</h3>
+
+          <p>
+            NEXUS Cyber Café uses a Star Topology where all computers
+            and network devices are connected to a central managed switch.
+          </p>
+
+          <ul class="custom-list">
+
+            <li>Easy to install and manage.</li>
+
+            <li>Easy to troubleshoot network problems.</li>
+
+            <li>Failure of one computer does not affect other computers.</li>
+
+            <li>Easy to expand when more computers are added.</li>
+
+            <li>Suitable for a cyber café environment.</li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- TOPOLOGY IMAGE -->
+
+        <div class="image-box">
+          INSERT CISCO PACKET TRACER TOPOLOGY SCREENSHOT HERE
+        </div>
+
+
+        <!-- 3.4 MEDIA -->
+
+        <h3>3.4 Communication Media</h3>
+
+        <div class="table-wrapper">
+
+          <table>
+
+            <thead>
+
+              <tr>
+                <th>Media</th>
+                <th>Usage</th>
+                <th>Reason</th>
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+
+                <td>Cat6 Ethernet Cable</td>
+
+                <td>
+                  Router, switch, server and gaming PCs
+                </td>
+
+                <td>
+                  Reliable and suitable for high-speed wired connections.
+                </td>
+
+              </tr>
+
+              <tr>
+
+                <td>Wireless Wi-Fi</td>
+
+                <td>
+                  Customer mobile devices and wireless devices
+                </td>
+
+                <td>
+                  Provides convenient wireless connectivity.
+                </td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================================
+           4.0 IP ADDRESSING
+      ========================================== -->
+
+      <section id="ip">
+
+        <div class="section-number">
+          4.0 IP ADDRESSING
+        </div>
+
+        <h2>IP Addressing</h2>
+
+        <p>
+          IPv4 addressing is used to assign unique addresses to
+          network devices within the NEXUS Cyber Café network.
+        </p>
+
+
+        <h3>4.1 IP Addressing Scheme</h3>
+
+        <div class="table-wrapper">
+
+          <table>
+
+            <thead>
+
+              <tr>
+                <th>Device</th>
+                <th>IP Address</th>
+                <th>Subnet Mask</th>
+                <th>Default Gateway</th>
+                <th>DNS</th>
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <!-- CHANGE THESE ACCORDING TO YOUR CISCO CONFIG -->
+
+              <tr>
+                <td>Router</td>
+                <td>192.168.10.1</td>
+                <td>255.255.255.0</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+
+              <tr>
+                <td>Server</td>
+                <td>192.168.10.2</td>
+                <td>255.255.255.0</td>
+                <td>192.168.10.1</td>
+                <td>8.8.8.8</td>
+              </tr>
+
+              <tr>
+                <td>PC 01</td>
+                <td>192.168.10.10</td>
+                <td>255.255.255.0</td>
+                <td>192.168.10.1</td>
+                <td>8.8.8.8</td>
+              </tr>
+
+              <tr>
+                <td>PC 02</td>
+                <td>192.168.10.11</td>
+                <td>255.255.255.0</td>
+                <td>192.168.10.1</td>
+                <td>8.8.8.8</td>
+              </tr>
+
+              <tr>
+                <td>PC 03</td>
+                <td>192.168.10.12</td>
+                <td>255.255.255.0</td>
+                <td>192.168.10.1</td>
+                <td>8.8.8.8</td>
+              </tr>
+
+              <tr>
+                <td>PC 04 - PC 15</td>
+                <td>192.168.10.13 - 192.168.10.24</td>
+                <td>255.255.255.0</td>
+                <td>192.168.10.1</td>
+                <td>8.8.8.8</td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+        <h3>4.2 DHCP Configuration</h3>
+
+        <div class="card">
+
+          <p>
+            <strong>Network Address:</strong> INSERT
+          </p>
+
+          <p>
+            <strong>Subnet Mask:</strong> INSERT
+          </p>
+
+          <p>
+            <strong>Default Gateway:</strong> INSERT
+          </p>
+
+          <p>
+            <strong>DHCP Range:</strong> INSERT
+          </p>
+
+          <p>
+            <strong>DNS Server:</strong> INSERT
+          </p>
+
+        </div>
+
+
+        <h3>4.3 Subnetting / IP Calculation</h3>
+
+        <div class="card">
+
+          <p>
+            INSERT YOUR IP CALCULATION / SUBNETTING EXPLANATION HERE.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================================
+           5.0 INTERNET ACCESS
+      ========================================== -->
+
+      <section id="internet">
+
+        <div class="section-number">
+          5.0 INTERNET ACCESS
+        </div>
+
+        <h2>Internet Access</h2>
+
+        <p>
+          This section explains the proposed Internet service and
+          how NEXUS Cyber Café connects its internal network to the Internet.
+        </p>
+
+
+        <h3>5.1 Internet Service Provider</h3>
+
+        <div class="card">
+
+          <p>
+            <strong>ISP:</strong> INSERT ISP NAME
+          </p>
+
+          <p>
+            <strong>Internet Plan:</strong> INSERT PLAN
+          </p>
+
+          <p>
+            <strong>Internet Speed:</strong> INSERT SPEED
+          </p>
+
+          <p>
+            <strong>Connection Type:</strong> INSERT CONNECTION TYPE
+          </p>
+
+        </div>
+
+
+        <h3>5.2 Internet Connection Design</h3>
+
+        <div class="card">
+
+          <p>
+            The Internet connection is provided through the router,
+            which acts as the gateway between the internal NEXUS Cyber Café
+            network and the Internet.
+          </p>
+
+        </div>
+
+
+        <div class="image-box">
+          INSERT INTERNET CONNECTION DIAGRAM HERE
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================================
+           6.0 NETWORK TESTING
+      ========================================== -->
+
+      <section id="testing">
+
+        <div class="section-number">
+          6.0 NETWORK TESTING
+        </div>
+
+        <h2>Network Configuration & Testing</h2>
+
+        <p>
+          Network testing is performed to verify connectivity between
+          devices and ensure that the proposed network operates correctly.
+        </p>
+
+
+        <h3>6.1 Ping Test</h3>
+
+        <div class="test-box">
+
+          <div class="test-card">
+            <span>PC → Router</span>
+            <strong>INSERT PING</strong>
+          </div>
+
+          <div class="test-card">
+            <span>PC → Server</span>
+            <strong>INSERT PING</strong>
+          </div>
+
+          <div class="test-card">
+            <span>PC → PC</span>
+            <strong>INSERT PING</strong>
+          </div>
+
+        </div>
+
+
+        <div class="image-box">
+          INSERT PING TEST SCREENSHOT HERE
+        </div>
+
+
+        <h3>6.2 Connectivity Test</h3>
+
+        <div class="table-wrapper">
+
+          <table>
+
+            <thead>
+
+              <tr>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Result</th>
+                <th>Remarks</th>
+              </tr>
+
+            </thead>
+
+            <tbody>
+
+              <tr>
+
+                <td>PC 01</td>
+                <td>Router</td>
+                <td class="test-success">SUCCESS</td>
+                <td>Connection established</td>
+
+              </tr>
+
+              <tr>
+
+                <td>PC 01</td>
+                <td>Server</td>
+                <td class="test-success">SUCCESS</td>
+                <td>Connection established</td>
+
+              </tr>
+
+              <tr>
+
+                <td>PC 01</td>
+                <td>PC 02</td>
+                <td class="test-success">SUCCESS</td>
+                <td>Connection established</td>
+
+              </tr>
+
+              <tr>
+
+                <td>PC 01</td>
+                <td>Internet</td>
+                <td class="test-success">SUCCESS</td>
+                <td>Internet access available</td>
+
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+
+        <h3>6.3 Network Configuration Screenshot</h3>
+
+        <div class="image-box">
+          INSERT ROUTER / PC CONFIGURATION SCREENSHOT HERE
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================================
+           7.0 PROJECT VIDEO
+      ========================================== -->
+
+      <section id="video">
+
+        <div class="section-number">
+          7.0 PROJECT VIDEO
+        </div>
+
+        <h2>Project Video</h2>
+
+        <p>
+          The project video presents the proposed NEXUS Cyber Café,
+          network topology, configuration, hardware, IP addressing
+          and network testing.
+        </p>
+
+
+        <div class="video-container">
+
+          <!--
+            REPLACE VIDEO_ID WITH YOUR YOUTUBE VIDEO ID
+
+            Example:
+            https://www.youtube.com/watch?v=ABC123
+
+            Video ID = ABC123
+          -->
+
+          <iframe
+            src="https://www.youtube.com/embed/VIDEO_ID"
+            title="NEXUS Cyber Café Project Video"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================================
+           8.0 CONCLUSION
+      ========================================== -->
+
+      <section id="conclusion">
+
+        <div class="section-number">
+          8.0 CONCLUSION
+        </div>
+
+        <h2>Conclusion</h2>
+
+        <div class="card">
+
+          <p>
+            In conclusion, NEXUS Cyber Café is designed to provide
+            a reliable, affordable and comfortable place for students,
+            gamers, employees and the local community.
+          </p>
+
+          <p>
+            The proposed network uses suitable hardware, software,
+            communication media, Star Topology and proper IP addressing
+            to ensure stable and efficient network connectivity.
+          </p>
+
+          <p>
+            Overall, the proposed network design meets the objectives
+            of the project and supports the daily operations of the
+            cyber café.
+          </p>
+
+          <p>
+            In the future, NEXUS Cyber Café can expand its services by
+            adding more computers, upgrading network equipment and
+            providing better Internet speed to support more customers.
+          </p>
+
+        </div>
+
+      </section>
+
+
+
+      <!-- =========================================
+           9.0 APPENDIX
+      ========================================== -->
+
+      <section id="appendix">
+
+        <div class="section-number">
+          9.0 APPENDIX
+        </div>
+
+        <h2>Appendix</h2>
+
+        <p>
+          Supporting screenshots and evidence related to the project
+          are provided in this section.
+        </p>
+
+
+        <h3>Appendix A — Network Topology</h3>
+
+        <div class="image-box">
+          INSERT TOPOLOGY SCREENSHOT
+        </div>
+
+
+        <h3>Appendix B — IP Configuration</h3>
+
+        <div class="image-box">
+          INSERT IP CONFIGURATION SCREENSHOT
+        </div>
+
+
+        <h3>Appendix C — Ping Test</h3>
+
+        <div class="image-box">
+          INSERT PING SCREENSHOT
+        </div>
+
+
+        <h3>Appendix D — Router Configuration</h3>
+
+        <div class="image-box">
+          INSERT ROUTER CONFIGURATION SCREENSHOT
+        </div>
+
+
+        <h3>Appendix E — Bonus.com Test</h3>
+
+        <div class="card">
+
+          <p>
+            A web browser from a host within the network is used to
+            access the required web hosting server.
+          </p>
+
+          <p>
+            <strong>Website:</strong> http://www.bonus.com
+          </p>
+
+        </div>
+
+        <div class="image-box">
+          INSERT BONUS.COM BROWSER SCREENSHOT HERE
+        </div>
+
+
+        <h3>Appendix F — Additional Evidence</h3>
+
+        <div class="image-box">
+          INSERT ADDITIONAL PROJECT SCREENSHOTS HERE
+        </div>
+
+      </section>
+
+
+    </main>
+
+  </div>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <p>
+      © 2026 NEXUS Cyber Café — Data Communication and Networking
+    </p>
+
+    <p>
+      DITS 2313 | Semester 3 | Session 2025/2026
+    </p>
+
+  </footer>
+
+
+</body>
+</html>
