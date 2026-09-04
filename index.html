@@ -107,6 +107,14 @@ nav{
   font-weight:700;
   color:#fff;
 }
+
+.logo img{
+  width:35px;
+  height:35px;
+  object-fit:contain;
+  border-radius:7px;
+}
+
 .logo-mark{
   width:30px;height:30px;
   border-radius:7px;
@@ -224,6 +232,14 @@ nav{
   border:1px solid var(--line);
   overflow:hidden;
 }
+
+.rig img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
 .rig svg{width:100%;height:100%;}
 .pulse-ring{
   animation:pulse 3.2s ease-in-out infinite;
@@ -456,8 +472,10 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--blue);outline-offs
 
 <header>
   <nav>
-    <div class="logo"><span class="logo-mark">N</span>NEXUS Cyber Café</div>
-    <div class="nav-links">
+    <div class="logo">
+  <img src="nexus-logo.png" alt="NEXUS Cyber Café Logo">
+  NEXUS Cyber Café
+</div>
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#services">Services</a>
@@ -479,8 +497,7 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--blue);outline-offs
         <h1>Your ultimate <span class="g">gaming &amp; digital</span> experience hub</h1>
         <p class="hero-sub">NEXUS Cyber Café provides high-performance gaming computers, reliable internet access, printing services, and comfortable digital facilities for gaming, studying, and online activities.</p>
         <div class="hero-ctas">
-          <a href="visit.html" class="btn-primary">Visit Us</a>
-          <a href="services.html" class="btn-ghost">Explore Services</a>
+          <a href="#services" class="btn-ghost">Explore Services</a>
         </div>
         <div class="hero-stats">
           <div><b>15</b><span>Gaming PCs</span></div>
@@ -490,26 +507,8 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--blue);outline-offs
       </div>
 
       <div class="rig" aria-hidden="true">
-        <svg viewBox="0 0 400 400" fill="none">
-          <circle class="pulse-ring" cx="200" cy="200" r="150" stroke="url(#g1)" stroke-width="1"/>
-          <circle class="pulse-ring" cx="200" cy="200" r="110" stroke="url(#g1)" stroke-width="1" style="animation-delay:0.6s"/>
-          <rect x="110" y="140" width="180" height="120" rx="10" fill="#141a30" stroke="url(#g1)" stroke-width="1.5"/>
-          <rect x="126" y="156" width="80" height="88" rx="4" fill="#0b0f1c" stroke="#2a3358"/>
-          <circle cx="166" cy="200" r="26" fill="none" stroke="url(#g1)" stroke-width="2"/>
-          <circle cx="166" cy="200" r="14" fill="url(#g1)" opacity="0.5"/>
-          <rect x="216" y="160" width="60" height="10" rx="2" fill="#2a3358"/>
-          <rect x="216" y="178" width="44" height="8" rx="2" fill="#2a3358"/>
-          <rect x="216" y="194" width="52" height="8" rx="2" fill="#2a3358"/>
-          <rect x="150" y="270" width="100" height="8" rx="4" fill="#1c2340"/>
-          <rect x="130" y="286" width="140" height="6" rx="3" fill="#141a30"/>
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="400" y2="400">
-              <stop offset="0%" stop-color="#4c7fff"/>
-              <stop offset="100%" stop-color="#9b5cff"/>
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
+    <img src="nexus-empty.jpg" alt="NEXUS Cyber Café">
+</div>
     </div>
   </section>
 
