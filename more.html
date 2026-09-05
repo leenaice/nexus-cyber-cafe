@@ -387,6 +387,13 @@
       border: 1px solid var(--line);
     }
 
+    .image-box img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: auto;
+    }
+
     /* =========================
        TESTING
     ========================= */
@@ -617,96 +624,89 @@
               </tr>
             </thead>
 
-            <tbody>
+<tbody>
 
-              <tr>
-                <td>Gaming PC</td>
-                <td>15 units</td>
-                <td>Customer computers</td>
-                <td>RM45,000</td>
-              </tr>
+  <tr>
+    <td>Gaming PC</td>
+    <td>15 units</td>
+    <td>Customer computers for gaming, browsing and online learning</td>
+    <td>RM45,000</td>
+  </tr>
 
-              <tr>
-                <td>Server PC</td>
-                <td>1</td>
-                <td>Manage network & database</td>
-                <td>RM3,500</td>
-              </tr>
+  <tr>
+    <td>Cisco 2911 Router</td>
+    <td>1</td>
+    <td>Provides network routing and acts as the Internet gateway</td>
+    <td>RM600</td>
+  </tr>
 
-              <tr>
-                <td>Router</td>
-                <td>1</td>
-                <td>Internet connection</td>
-                <td>RM600</td>
-              </tr>
+  <tr>
+    <td>Cisco 2960 Managed Switch</td>
+    <td>1</td>
+    <td>Connects and manages wired network devices</td>
+    <td>RM1,200</td>
+  </tr>
 
-              <tr>
-                <td>Managed Switch 24 Ports</td>
-                <td>1</td>
-                <td>Connect network devices</td>
-                <td>RM1,200</td>
-              </tr>
+  <tr>
+    <td>Wireless Access Point</td>
+    <td>2</td>
+    <td>Provides wireless network coverage</td>
+    <td>RM800</td>
+  </tr>
 
-              <tr>
-                <td>Wireless Access Point</td>
-                <td>2</td>
-                <td>Wi-Fi coverage</td>
-                <td>RM800</td>
-              </tr>
+  <tr>
+    <td>Network Printer</td>
+    <td>1</td>
+    <td>Provides shared printing services</td>
+    <td>RM700</td>
+  </tr>
 
-              <tr>
-                <td>Network Printer</td>
-                <td>1</td>
-                <td>Printing service</td>
-                <td>RM700</td>
-              </tr>
+  <tr>
+    <td>Cat6 Ethernet Cable</td>
+    <td>1 box</td>
+    <td>Provides wired network connections</td>
+    <td>RM500</td>
+  </tr>
 
-              <tr>
-                <td>CCTV Camera</td>
-                <td>4</td>
-                <td>Security monitoring</td>
-                <td>RM1,200</td>
-              </tr>
+  <tr>
+    <td>RJ45 Connector</td>
+    <td>50 pcs</td>
+    <td>Cable termination</td>
+    <td>RM50</td>
+  </tr>
 
-              <tr>
-                <td>UPS</td>
-                <td>2</td>
-                <td>Power backup</td>
-                <td>RM800</td>
-              </tr>
+  <tr>
+    <td>Rack Cabinet</td>
+    <td>1</td>
+    <td>Organizes and protects network equipment</td>
+    <td>RM800</td>
+  </tr>
 
-              <tr>
-                <td>Ethernet Cable Cat6</td>
-                <td>1 box</td>
-                <td>Network media</td>
-                <td>RM500</td>
-              </tr>
+  <tr>
+    <td>UPS</td>
+    <td>2</td>
+    <td>Provides backup power for network equipment</td>
+    <td>RM800</td>
+  </tr>
 
-              <tr>
-                <td>RJ45 Connector</td>
-                <td>50 pcs</td>
-                <td>Cable termination</td>
-                <td>RM50</td>
-              </tr>
+  <tr>
+    <td>CCTV Camera</td>
+    <td>4</td>
+    <td>Provides security monitoring for the premises</td>
+    <td>RM1,200</td>
+  </tr>
 
-              <tr>
-                <td>Rack Cabinet</td>
-                <td>1</td>
-                <td>Store network devices</td>
-                <td>RM800</td>
-              </tr>
+  <tr>
+    <td colspan="3">
+      <strong>Total Estimated Hardware Cost</strong>
+    </td>
 
-              <tr>
-                <td colspan="3">
-                  <strong>Total Estimated Hardware Cost</strong>
-                </td>
+    <td>
+      <strong>RM51,650</strong>
+    </td>
+  </tr>
 
-                <td>
-                  <strong>RM55,150</strong>
-                </td>
-              </tr>
-
-            </tbody>
+</tbody>
 
           </table>
 
@@ -802,7 +802,7 @@
         <h3>3.1 Network Layout</h3>
 
         <div class="image-box">
-          INSERT 15' × 25' CYBER CAFÉ LAYOUT IMAGE HERE
+          <img src="network-layout.png" alt="NEXUS Cyber Café Network Layout">
         </div>
 
 
@@ -871,8 +871,8 @@
 
         <!-- TOPOLOGY IMAGE -->
 
-        <div class="image-box">
-          INSERT CISCO PACKET TRACER TOPOLOGY SCREENSHOT HERE
+       <div class="image-box">
+          <img src="./network-topo.jpeg" alt="NEXUS Cyber Café Network Topology">
         </div>
 
 
@@ -952,7 +952,7 @@
         </p>
 
 
-        <h3>4.1 IP Addressing Scheme</h3>
+        <h3>4.1 IP Addressing Table</h3>
 
         <div class="table-wrapper">
 
@@ -965,7 +965,6 @@
                 <th>IP Address</th>
                 <th>Subnet Mask</th>
                 <th>Default Gateway</th>
-                <th>DNS</th>
               </tr>
 
             </thead>
@@ -974,55 +973,147 @@
 
               <!-- CHANGE THESE ACCORDING TO YOUR CISCO CONFIG -->
 
-              <tr>
-                <td>Router</td>
-                <td>192.168.10.1</td>
-                <td>255.255.255.0</td>
-                <td>-</td>
-                <td>-</td>
-              </tr>
+<tr>
+              <td>Router</td>
+              <td>192.168.10.1</td>
+              <td>255.255.255.0</td>
+              <td>-</td>
+            </tr>
 
-              <tr>
-                <td>Server</td>
-                <td>192.168.10.2</td>
-                <td>255.255.255.0</td>
-                <td>192.168.10.1</td>
-                <td>8.8.8.8</td>
-              </tr>
+            <tr>
+              <td>Server</td>
+              <td>192.168.10.2</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
 
-              <tr>
-                <td>PC 01</td>
-                <td>192.168.10.10</td>
-                <td>255.255.255.0</td>
-                <td>192.168.10.1</td>
-                <td>8.8.8.8</td>
-              </tr>
+            <tr>
+              <td>Printer</td>
+              <td>192.168.10.3</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
 
-              <tr>
-                <td>PC 02</td>
-                <td>192.168.10.11</td>
-                <td>255.255.255.0</td>
-                <td>192.168.10.1</td>
-                <td>8.8.8.8</td>
-              </tr>
+            <tr>
+              <td>Access Point 1</td>
+              <td>192.168.10.4</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
 
-              <tr>
-                <td>PC 03</td>
-                <td>192.168.10.12</td>
-                <td>255.255.255.0</td>
-                <td>192.168.10.1</td>
-                <td>8.8.8.8</td>
-              </tr>
+            <tr>
+              <td>Access Point 2</td>
+              <td>192.168.10.5</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
 
-              <tr>
-                <td>PC 04 - PC 15</td>
-                <td>192.168.10.13 - 192.168.10.24</td>
-                <td>255.255.255.0</td>
-                <td>192.168.10.1</td>
-                <td>8.8.8.8</td>
-              </tr>
+            <tr>
+              <td>PC1</td>
+              <td>192.168.10.10</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
 
-            </tbody>
+            <tr>
+              <td>PC2</td>
+              <td>192.168.10.11</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC3</td>
+              <td>192.168.10.12</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC4</td>
+              <td>192.168.10.13</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC5</td>
+              <td>192.168.10.14</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC6</td>
+              <td>192.168.10.15</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC7</td>
+              <td>192.168.10.16</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC8</td>
+              <td>192.168.10.17</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC9</td>
+              <td>192.168.10.18</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC10</td>
+              <td>192.168.10.19</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC11</td>
+              <td>192.168.10.20</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC12</td>
+              <td>192.168.10.21</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC13</td>
+              <td>192.168.10.22</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC14</td>
+              <td>192.168.10.23</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+            <tr>
+              <td>PC15</td>
+              <td>192.168.10.24</td>
+              <td>255.255.255.0</td>
+              <td>192.168.10.1</td>
+            </tr>
+
+          </tbody>
 
           </table>
 
